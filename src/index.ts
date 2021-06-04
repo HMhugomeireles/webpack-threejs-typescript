@@ -20,14 +20,6 @@ const canvas = document.querySelector<HTMLCanvasElement>('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// Camera
-const camera = new THREE.PerspectiveCamera(70, settings.sizes.width / settings.sizes.height, 0.1, 1000)
-scene.add(camera)
-
-// Controls
-const controls = new OrbitControls(camera, canvas)
-//controls.enableDamping = true
-
 const cube1 = new THREE.Mesh(
     new THREE.BoxGeometry(1, 1, 1),
     new THREE.MeshBasicMaterial({ color: 0xff0011 })
@@ -59,6 +51,13 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 }) 
 
+// Camera
+const camera = new THREE.PerspectiveCamera(70, settings.sizes.width / settings.sizes.height, 0.1, 1000)
+scene.add(camera)
+
+// Controls
+const controls = new OrbitControls(camera, canvas)
+//controls.enableDamping = true
 
 const clock = new THREE.Clock()
 // Animations 
